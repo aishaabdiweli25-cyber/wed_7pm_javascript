@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Country Checker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 220px;
+      }
+      button {
+        padding: 8px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>City → Country Checker</h2>
+      <input type="text" id="cityInput" placeholder="Enter a city" />
+      <button onclick="checkCity()">Check</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function checkCity() {
+        const city = document.getElementById("cityInput").value.toLowerCase();
+        let country;
+
+        switch (city) {
+          // USA
+          case "new york":
+          case "los angeles":
+          case "chicago":
+          case "houston":
+          case "miami":
+            country = "United States";
+            break;
+
+          // Canada
+          case "toronto":
+          case "vancouver":
+          case "montreal":
+          case "calgary":
+            country = "Canada";
+            break;
+
+          // United Kingdom
+          case "london":
+          case "manchester":
+          case "birmingham":
+          case "liverpool":
+            country = "United Kingdom";
+            break;
+
+          // Germany
+          case "berlin":
+          case "munich":
+          case "hamburg":
+          case "frankfurt":
+            country = "Germany";
+            break;
+
+          // France
+          case "paris":
+          case "lyon":
+          case "marseille":
+          case "nice":
+            country = "France";
+            break;
+
+          // Italy
+          case "rome":
+          case "milan":
+          case "venice":
+          case "naples":
+            country = "Italy";
+            break;
+
+          // Spain
+          case "madrid":
+          case "barcelona":
+          case "valencia":
+          case "seville":
+            country = "Spain";
+            break;
+
+          // China
+          case "beijing":
+          case "shanghai":
+          case "guangzhou":
+          case "shenzhen":
+            country = "China";
+            break;
+
+          // Japan
+          case "tokyo":
+          case "osaka":
+          case "kyoto":
+          case "yokohama":
+            country = "Japan";
+            break;
+
+          // India
+          case "mumbai":
+          case "delhi":
+          case "bangalore":
+          case "kolkata":
+            country = "India";
+            break;
+
+          // Australia
+          case "sydney":
+          case "melbourne":
+          case "brisbane":
+          case "perth":
+            country = "Australia";
+            break;
+
+          // South Africa
+          case "johannesburg":
+          case "cape town":
+          case "durban":
+            country = "South Africa";
+            break;
+
+          // Brazil
+          case "rio de janeiro":
+          case "são paulo":
+          case "brasilia":
+            country = "Brazil";
+            break;
+
+          // Mexico
+          case "mexico city":
+          case "guadalajara":
+          case "monterrey":
+            country = "Mexico";
+            break;
+
+          // Turkey
+          case "istanbul":
+          case "ankara":
+          case "izmir":
+            country = "Turkey";
+            break;
+
+          // UAE
+          case "dubai":
+          case "abu dhabi":
+            country = "United Arab Emirates";
+            break;
+
+          // Default
+          default:
+            country = "Unknown Country";
+        }
+
+        document.getElementById("result").textContent = `Country: ${country}`;
+      }
+    </script>
+  </body>
+</html>

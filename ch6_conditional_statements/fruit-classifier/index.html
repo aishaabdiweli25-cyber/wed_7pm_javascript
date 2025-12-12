@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Category Checker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+      }
+      button {
+        padding: 8px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Fruit Category Checker</h2>
+      <input type="text" id="fruitInput" placeholder="Enter a fruit" />
+      <button onclick="checkFruit()">Check</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function checkFruit() {
+        const fruit = document.getElementById("fruitInput").value.toLowerCase();
+        let category;
+
+        switch (fruit) {
+          case "apple":
+          case "banana":
+          case "mango":
+            category = "Tropical Fruit";
+            break;
+          case "orange":
+          case "lemon":
+          case "lime":
+            category = "Citrus Fruit";
+            break;
+          case "strawberry":
+          case "blueberry":
+          case "raspberry":
+            category = "Berry";
+            break;
+          case "grape":
+          case "kiwi":
+            category = "Exotic Fruit";
+            break;
+          default:
+            category = "Unknown Category";
+        }
+
+        document.getElementById("result").textContent = `Category: ${category}`;
+      }
+    </script>
+  </body>
+</html>
