@@ -19,11 +19,11 @@
 // }while (i < 100)
 
 // Example with an array
-const fruits = ["Apple", "Banana", "Mango"];
+// const fruits = ["Apple", "Banana", "Mango"];
 
-for (let fruit of fruits) {
-  console.log(fruit);
-}
+// for (let fruit of fruits) {
+//   console.log(fruit);
+// }
 // output
 // Apple
 // Banana
