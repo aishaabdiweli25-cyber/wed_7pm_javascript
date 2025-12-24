@@ -1,4 +1,4 @@
-// function printMyInfo() {
+ // function printMyInfo() {
 //   console.log("hello");
 // //   console.log("world");
 // //   console.log("my");
@@ -30,3 +30,6 @@
 // }
 
 // setTimeout(pray, 1000, "Cisha", "4", "Mosque");
+
+
+let timer = setInterval(() => console.log("adam"),2000)
