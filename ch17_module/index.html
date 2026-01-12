@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quran Surah App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>📖 Surah Verse Calculator</h1>
+        <p class="subtitle">Find the number of verses in any Surah</p>
+
+        <div class="input-group">
+            <label>Select Surah</label>
+            <select id="surahSelect">
+                <option value="">-- Choose Surah --</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Or Type Surah Name</label>
+            <input type="text" id="surahInput" placeholder="e.g. Al-Fatiha">
+        </div>
+
+        <button id="checkBtn">Check Verses</button>
+
+        <div id="output" class="output-box"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
