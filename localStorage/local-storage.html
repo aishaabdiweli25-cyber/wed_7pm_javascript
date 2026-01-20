@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Storage App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #667eea;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .delete {
+      background: #e53e3e;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .delete:hover {
+      background: #c53030;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>My Tasks</h1>
+
+    <div class="input-group">
+      <input type="text" id="itemInput" placeholder="Add a task">
+      <button onclick="addItem()">Add</button>
+    </div>
+
+    <ul id="itemList"></ul>
+  </div>
+
+  <script>
+    const input = document.getElementById("itemInput");
+    const list = document.getElementById("itemList");
+
+    // Load items from sessionStorage on page load
+    document.addEventListener("DOMContentLoaded", loadItems);
+
+    function loadItems() {
+      const items = JSON.parse(sessionStorage.getItem("items")) || [];
+      items.forEach(item => addItemToDOM(item));
+    }
+
+    function addItem() {
+      const value = input.value.trim();
+      if (value === "") return;
+
+      addItemToDOM(value);
+      saveItem(value);
+      input.value = "";
+    }
+
+    function addItemToDOM(item) {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${item}</span>
+        <button class="delete" onclick="removeItem(this, '${item}')">Delete</button>
+      `;
+      list.appendChild(li);
+    }
+
+    function saveItem(item) {
+      const items = JSON.parse(sessionStorage.getItem("items")) || [];
+      items.push(item);
+      sessionStorage.setItem("items", JSON.stringify(items));
+    }
+
+    function removeItem(button, item) {
+      button.parentElement.remove();
+
+      let items = JSON.parse(sessionStorage.getItem("items")) || [];
+      items = items.filter(i => i !== item);
+      sessionStorage.setItem("items", JSON.stringify(items));
+    }
+  </script>
+
+</body>
+</html>
